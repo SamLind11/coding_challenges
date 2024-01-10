@@ -10,23 +10,24 @@ quadratic time complexity in the average and worst cases.
 function insertionSort(array) {
     let length = array.length;
     
+    
     if (length == 0 || length == 1) {
         return array;
     }
+
+    let result = [array[0]];
     let to_sort;
+
     for (let i = 1; i < length; i++) {
 
         to_sort = array[i];
         let tracker = i;
-        while (tracker > 0 && to_sort >= array[tracker]) {
+        while (tracker > 0 && to_sort > result[tracker]) {
             tracker--;
         }
-        if (tracker != i) {
-            array = array.splice(i, 1); // Delete 1 element at index i.
-            array = array.splice(tracker + 1, 0, to_sort);  // Insert to_sort 
-        }
+        result = result.splice(tracker, 0, to_sort);
     }
-    return array;
+    return result;
     
 }
 
