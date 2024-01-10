@@ -15,19 +15,20 @@ function insertionSort(array) {
         return array;
     }
 
-    let result = [array[0]];
     let to_sort;
 
     for (let i = 1; i < length; i++) {
 
         to_sort = array[i];
-        let tracker = i;
-        while (tracker > 0 && to_sort > result[tracker]) {
+        let tracker = i - 1;
+
+        while (tracker >= 0 && array[tracker] > to_sort) {
+            array[tracker + 1] = array[tracker];
             tracker--;
         }
-        result = result.splice(tracker, 0, to_sort);
+        array[tracker + 1] = to_sort;
     }
-    return result;
+    return array;
     
 }
 
