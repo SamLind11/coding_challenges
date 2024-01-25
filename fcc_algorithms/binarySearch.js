@@ -21,17 +21,16 @@ target in an array.
 // Function which performs binary search and returns the path.
 function binarySearch(searchList, value) {
     let arrayPath = [];
-    let length = searchList.length;
 
     if (length == 0) return arrayPath;
 
     let found = false;
-    let left = 0, right = length + 1;
+    let left = 0, right = searchList.length;
     let middle, current;
 
     // Search for value while updating left and right.
     while (left != right) {
-        middle = Math.floor((left + right) / 2);
+        middle = Math.floor((left + right) / 2); 
         current = searchList[middle];
         arrayPath.push(middle);
 
@@ -52,8 +51,7 @@ function binarySearch(searchList, value) {
     }
 }
 
-const testArray = [
-    0, 1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
-    23, 49, 70];
+const testArray = [0, 1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 
+    19, 20, 21, 22, 23, 49, 70];
 
 console.log(binarySearch(testArray, 0));
